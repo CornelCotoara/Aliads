@@ -13,7 +13,7 @@ jobs:
         run: pip install requests
       - name: Grab and curate Alibaba ads
         run: |
-          python grab_and_curate_alibaba_ads.py \
+          python aliads.py \
             https://raw.githubusercontent.com/v2ray/domain-list-community/refs/heads/master/data/alibaba-ads \
             curated_alibaba_ads.txt
             
