@@ -1,0 +1,2 @@
+# Aliads
+Aliads FQDN list
