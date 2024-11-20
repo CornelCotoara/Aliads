@@ -1,0 +1,34 @@
+name: Update Alibaba Ads
+
+on:
+  # Schedule to run weekly on Sundays
+  schedule:
+    days: [sunday]
+    hours: [0]  # Run at midnight UTC
+
+jobs:
+  update_ads:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Grab and curate Alibaba ads
+        run: |
+          python aliads.py \
+            https://raw.githubusercontent.com/v2ray/domain-list-community/refs/heads/master/data/alibaba-ads \
+            curated_alibaba_ads.txt
+
+      - name: Commit changes (optional)
+        uses: EndBug/add-and-commit@v2
+        with:
+          message: 'Update Alibaba ads list'
+          # Add other commit options as needed
+
+      - name: Push changes (optional)
+        uses: ad-actions/github-push@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main  # Update the branch as needed
