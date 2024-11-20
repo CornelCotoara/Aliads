@@ -28,6 +28,6 @@ def grab_and_curate_alibaba_ads(url, output_file):
 if __name__ == '__main__':
     base_url = "https://raw.githubusercontent.com/v2ray/domain-list-community/refs/heads/master/data/"
     url = urljoin(base_url, "alibaba-ads")
-    output_file = "curated_alibaba_ads.txt"
+    output_file = "alibaba_ads.txt"
 
     grab_and_curate_alibaba_ads(url, output_file)
